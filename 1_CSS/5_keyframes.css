@@ -1,0 +1,44 @@
+/* 
+Keyframes
+Used to add intermediate states of animation 
+https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
+*/
+
+p {
+  text-align: center;
+  padding-top: 40vh;
+  font-size: 30px;
+  /* animation block */
+  animation-name: partytext;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  /* "new" animation props */
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  /* specify how animaiton should apply styles
+  before and after the animaiton */
+  animation-fill-mode: forwards;
+  
+}
+
+@keyframes partytext {
+  0% {
+    color: red;
+    font-size: 40px;
+  }
+  25% {
+    color: orange;
+  }
+  50% {
+    color: yellow;
+    font-size: 50px;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: blue;
+    font-size: 40px;
+  }
+}
