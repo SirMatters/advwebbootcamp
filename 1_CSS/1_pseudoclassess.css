@@ -1,0 +1,49 @@
+/* 
+Hover
+activates when the user points onto the element
+but not necesserely clicks 
+*/
+h1:hover {
+  background-color: pink;
+  color: white;
+}
+
+/*
+Focus
+When user selects an element, not just hovers
+*/
+input:focus {
+  background-color: green;
+}
+button:focus {
+  border-radius: 10px;
+  background-color: grey;
+}
+
+/*
+ Active
+ When element is being activated by user, just some 
+ moment when it is actually in process
+ Bascially: when mouse is down on the element
+ */
+button:active {
+  background-color: orange;
+  font-size: 30px;
+}
+
+p:active {
+  color: yellow;
+}
+
+/* NB! the button styling will still be applied! */
+button.active-purple:active{
+  color: purple;
+}
+
+button.hover-green:hover{
+  color:green;
+}
+
+button.focus-orange:focus{
+  color:orange;
+}
