@@ -19,7 +19,8 @@ p {
   /* specify how animaiton should apply styles
   before and after the animaiton */
   animation-fill-mode: forwards;
-  
+  /* could make the animation to pause, hover for example */
+  animation-play-state: running;
 }
 
 @keyframes partytext {
