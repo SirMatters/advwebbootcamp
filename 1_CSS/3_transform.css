@@ -4,6 +4,8 @@ Transform
 Followed by a function.
 EX:
 translateX(100px); will move element 100px right
+using one transfrom after another will rewrite the first
+one by the second one
  */
 
  p.move-right {

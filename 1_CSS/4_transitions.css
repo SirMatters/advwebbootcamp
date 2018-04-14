@@ -1,0 +1,35 @@
+/*
+Transitions
+Used to control animation speed and duration
+*/
+
+.box {
+   background: #9b59b6;
+   height: 100px;
+   width: 100px;
+   line-height: 100px;
+   text-align: center;
+   color: white;
+   font-size: 17px;
+   border-radius: 20px;
+}
+.animated{
+  transition-duration: 1s, 2s;
+  transition-property: background-color, border-radius;
+  transition-delay: 0.5s, 1s;
+  /* control of acceleration 
+  for more transitions visit www.easings.net */
+  transition-timing-function: ease-in;
+}
+.animated2{
+  transition: 
+    background-color 1.5s ease-in 1s,
+    transform 5s linear;
+}
+.box:hover{
+  background-color: green;
+  /* transform-origin: top left; */
+  transform: scale(2) rotate(45deg);
+  border-radius: 50px;
+  opacity: 0.5;
+}
