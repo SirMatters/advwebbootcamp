@@ -22,8 +22,10 @@
   display: flex;
   border: 10px solid black;
   height: 800px;
-  align-items: baseline;
+  flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   /*
   acts like justify-content but along
   the cross-axis
