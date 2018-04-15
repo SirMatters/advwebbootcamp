@@ -1,0 +1,47 @@
+.box {
+  font-size: 50px;
+  color: white;
+  padding: 10px;
+  text-align:center;
+  font-family: lato;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+
+.box-1 {background: #e51400; }
+.box-2 {background: #fa6800; font-size: 150px;}
+.box-3 {background: #f0a30a; font-size: 50px;}
+.box-4 {background: #e3c800; }
+.box-5 {background: #a4c400;}
+.box-6 {background: #60a917; font-size: 80px;}
+.box-7 {background: #00aba9;}
+.box-8 {background: #1ba1e2; font-size: 125px;} 
+.box-9 {background: #aa00ff;}
+
+.container {
+  display: flex;
+  border: 10px solid black;
+  height: 800px;
+  align-items: baseline;
+  justify-content: center;
+  /*
+  acts like justify-content but along
+  the cross-axis
+
+  stretch - default
+  takes the full space
+
+  center
+
+  flex-start
+  takes minimum space needed starting
+  from the beginning
+
+  flex-end
+  ...
+
+  baseline
+  allows to align by the text line
+
+  */
+}
