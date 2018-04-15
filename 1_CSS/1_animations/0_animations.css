@@ -1,0 +1,56 @@
+/*transiton: [property] [duration] [ease] [delay]*/
+body {
+  padding: 50px;
+  font-family: sans-serif;
+}
+
+.trigger {
+  background-color: #ddd;
+  border: 30px solid #999;
+  width: 200px;
+  height: 200px;
+}
+
+.box {
+  display: inline-block;
+  background-color: pink;
+  width: 200px;
+  height: 200px;
+  transition: transform 300ms ease-in-out;
+  /*to disable box actions*/
+}
+
+.trigger:hover .box {
+  transform: translate(200px, 200px) rotate(20deg);
+}
+
+#two {
+  position: relative;
+  /*
+  animation [name] [duration] [timing-funtion] [delay]
+   [iter-count] [direction] [fill-mode] [play-state]
+  
+   DELAY works only till the first iteration start! It
+   will not affect the interval between iterations
+   
+   Alternate will go front-back-front - 3 iterations total
+
+   Animation fill-mode specifies how the element looks
+   like after the animation ended
+
+   Paused stops the animation in the exact moment, it
+   does not reset the state
+   */
+  animation: keyframes1 2s ease-in-out alternate infinite paused;
+}
+
+#two:hover {
+  animation-play-state: running;
+}
+
+@keyframes keyframes1 {
+  100% {
+    background-color: orange;
+    transform: rotate(90deg) translate(100px, 100px) scale(0.5);
+  }
+}
