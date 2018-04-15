@@ -6,26 +6,25 @@
   font-family: lato;
   font-weight: 300;
   box-sizing: border-box;
+  width: 300px;
 }
 
 .box-1 {background: #e51400; }
-.box-2 {background: #fa6800; font-size: 150px;}
-.box-3 {background: #f0a30a; font-size: 50px;}
+.box-2 {background: #fa6800;}
+.box-3 {background: #f0a30a;}
 .box-4 {background: #e3c800; }
 .box-5 {background: #a4c400;}
-.box-6 {background: #60a917; font-size: 80px;}
+.box-6 {background: #60a917;}
 .box-7 {background: #00aba9;}
-.box-8 {background: #1ba1e2; font-size: 125px;} 
+.box-8 {background: #1ba1e2;} 
 .box-9 {background: #aa00ff;}
 
 .container {
   display: flex;
   border: 10px solid black;
-  height: 800px;
-  flex-direction: column;
-  justify-content: center;
+  height: 100vh;
   flex-wrap: wrap;
-  align-items: flex-start;
+  /* aling-items: */
   /*
   acts like justify-content but along
   the cross-axis
@@ -44,6 +43,15 @@
 
   baseline
   allows to align by the text line
+  */
 
+  align-content: space-between;
+  /*
+  defines how space is distr between rows
+  along the cross-axis
+
+  flex-start
+  
+  
   */
 }
