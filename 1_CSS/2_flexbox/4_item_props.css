@@ -1,0 +1,68 @@
+.container{
+  display: flex;
+  border: 2px solid black;
+  height: 300px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box {
+  font-size: 50px;
+  color: white;
+  text-align:center;
+  flex-grow: 1;
+  flex-basis: 50px;
+}
+
+.box-1 {background: #e51400; }
+.box-2 {background: #fa6800; order: 2;}
+.box-3 {background: #f0a30a; order: 2;}
+.box-4 {background: #e3c800; order: -1;}
+.box-5 {background: #a4c400;}
+.box-6 {background: #60a917;flex-basis: 200px; flex-shrink: 6;}
+.box-7 {background: #00aba9; align-self: flex-end;}
+.box-8 {background: #1ba1e2; align-self: flex-start;} 
+.box-9 {background: #aa00ff; flex-grow: 0.1;}
+/*
+==========
+----------
+align-self
+----------
+allows to override align-items on individual flex item
+==========
+----------
+order | default = 0
+----------
+allows to specify order of displ items 
+within the flexbox container
+negative values could be used as well
+=========
+---------
+flex: [flex-grow] [flex-shrink] [flex-basis]
+---------
+flex-basis 
+---------
+http://gedd.ski/post/the-difference-between-width-and-flex-basis/
+specifies 'ideal' size along main axis
+of item before it was put into container will alw.
+win against height/width, but will make them prior
+once it is not enough space
+---------
+flex-grow
+---------
+specifies how the unused space should be spread
+amongst the items (ratios) - just digits
+== use _ as much AVAILABLE space
+along main axis 
+
+---------
+flex-shrink
+---------
+Dictates how items should shrink when there
+is NOT ENOUGH space free
+
+0 - no shrink
+>1 shrinks faster
+<1 shrinks slower
+=========
+*/
