@@ -70,6 +70,10 @@ section p {
   text-align: center;
 }
 
+section:not(.hero):nth-child(even) {
+  background-color: #f5f5f5;
+}
+
 /* Header styles */
 
 header {
@@ -150,9 +154,7 @@ header nav li {
     opacity: 1;
   }
 }
-/*Destination sections*/
-
-
+/*Destinations Section*/
 .destinations .grid li{
   height: 350px;
   padding: 20px;
@@ -168,3 +170,19 @@ header nav li {
   flex-basis: 70%
 }
 
+/*Packages section*/
+
+.packages .grid li {
+  padding: 50px;
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.packages .grid li i {
+  color: #8c9eff;
+}
+
+.packages .grid li h4{
+  font-size: 30px;
+  margin: 25px 0;
+}
