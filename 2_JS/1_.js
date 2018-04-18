@@ -8,24 +8,35 @@ function higherOrger(fn) {
   console.log("From HO");
 }
 
-higherOrger(callback);
+// higherOrger(callback);
 
 // forEach implementation
 var arr = [1,2,3,4,5,6];
-     
-//forEach function is created using 
-//2 parameters
  
 function forEach(arr, callback){
   for(var i = 0; i < arr.length; i++){
     callback(arr[i], i, arr);
   }
+} 
+// forEach(arr, function(number){
+//   console.log(number*2);
+// })
+
+// findIndex
+function findIndex(array, callback) {
+  for (var i=0; i<array.length; i++){
+    if(callback(array[i], i, array)) {
+      console.log(i);
+      return i;
+    }
+  }
+  return -1;
 }
- 
-//Here I invoked forEach function with
-//a callback to multiply every array's
-//number by 2
- 
-forEach(arr, function(number){
-  console.log(number*2);
-})
+
+findIndex(arr, function(val, idx, arr){
+  // val refers to each value in the array
+  // idx refers to each index in the array
+  // arr refers to the entire array
+
+  return val > 3 // this would return the index where the first value is greater than 3    
+});
