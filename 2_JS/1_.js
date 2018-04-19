@@ -34,9 +34,5 @@ function findIndex(array, callback) {
 }
 
 findIndex(arr, function(val, idx, arr){
-  // val refers to each value in the array
-  // idx refers to each index in the array
-  // arr refers to the entire array
-
   return val > 3 // this would return the index where the first value is greater than 3    
 });
