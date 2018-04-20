@@ -18,11 +18,24 @@ function updateData() {
   XHR.send();
 }
 
+var fetchUpdate = () =>{
+  fetch(api)
+    .then((res)=>{return res.json();})
+    .then((dat)=>{
+      var usdPrice = dat.bpi.USD.rate_float;
+      var eurPrice = dat.bpi.EUR.rate_float;
+      usd.innerHTML = usdPrice;
+      eur.innerHTML = eurPrice;
+    });
+}
+
 window.onload = () =>{
-  updateData();
+  // updateData();
+  fetchUpdate();
 }
 
 btn.addEventListener("click", () => {
-  updateData();
+//   updateData();
+  fetchUpdate();
 });
 
