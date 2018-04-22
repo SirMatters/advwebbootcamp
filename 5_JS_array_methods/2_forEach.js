@@ -34,14 +34,14 @@ function addKeyAndValue(arr,key,value){
 }
 
 function vowelCount(str){
-  var vowels = ["a", "e", "i", "o", "u"];
+  var vowels = "aeiou";
   var arr = str.toLowerCase().split("");
   var countDict = {};
   arr.forEach(letter => {
-    if (vowels.includes(letter)){
+    if (vowels.indexOf(letter) !== -1){
       if(countDict.hasOwnProperty(letter)){
         countDict[letter]++;
-      } else{
+      } else {
         countDict[letter] = 1;
       }
     }
