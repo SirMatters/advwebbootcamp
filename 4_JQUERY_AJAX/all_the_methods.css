@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+}
+
+.click-zone{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  border: 2px solid lightseagreen;
+  border-radius: 15px;
+  background-color: white;
+  color: lightseagreen;
+  transition: all 300ms ease-in-out;
+}
+
+.btn:hover{
+  color:white;
+  background-color: lightseagreen;
+}
+
+.quote {
+  margin-top: 40px;
+  font-size: 40px;
+}
