@@ -17,6 +17,7 @@ function hasOnlyOddNumbers(arr){
 function hasNoDuplicates(arr){
     return !arr.some((ele,i,array) => {
       return arr.slice(i+1).includes(ele);
+      // return arr.indexOf(ele) === arr.lastIndexOf(ele);
     });
 }
 hasNoDuplicates([1,2,3,4]);
