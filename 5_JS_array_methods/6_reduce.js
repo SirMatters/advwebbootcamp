@@ -37,11 +37,10 @@ Write a function called addKeyAndValue which accepts an array of objects and ret
 */
 
 function addKeyAndValue(arr, key, value){
-    return arr.reduce((a,n)=>{
-      n[key] = value;
-      a.push(n);
+    return arr.reduce((a,n,i)=>{
+      a[i][key] = value;
       return a;
-    }, []);
+    }, arr);
 }
 var arr = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
 
