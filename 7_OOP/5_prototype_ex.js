@@ -51,21 +51,13 @@ function twice(num){
 }
 
 Array.prototype.map = mapp;
-
 console.log([1,2,3].mapp(twice));
-
-/* 2 - Implement a function called reverse that reverses a string and place it on the String.prototype
-
-Examples:
-    "test".reverse() // "tset"
-    "tacocat".reverse() // "tacocat"
-*/
 
 function reverse(str){
   newStr = [];
   str.split("").forEach(function(ele){
     newStr.unshift(ele);
-  })
+  });
   return newStr.join("");
 }
 
