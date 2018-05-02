@@ -31,11 +31,8 @@ function updateTodo(todo){
     .then(function(updatedTodo){
       todo.toggleClass('done');
       todo.data('completed', isDone); //update of item data
-      console.log(todo.data('completed'));
     })
-    .catch(function(err){
-      console.log(err);
-    })
+    .catch(function(err){console.log(err)});
 }
 
 function removeTodo(todo){
