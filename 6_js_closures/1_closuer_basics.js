@@ -1,4 +1,12 @@
 // Closure exists when returned inner function USES variables of outter funtcion which have already been returned
+function multiplyBy(a){
+  return function(b){
+    return a*b;
+  }
+}
+
+let byFive = multiplyBy(5); //function
+byFive(5); //25
 // a closure does not exist if inner function does not use ouuter function variables
 function counter(){
   let count=0;
@@ -16,15 +24,6 @@ first(); //2
 second(); //1
 first(); //3
 // the count variable is not shared!
-
-function multiplyBy(a){
-  return function(b){
-    return a*b;
-  }
-}
-
-let byFive = multiplyBy(5); //function
-byFive(5); //25
 
 function studyClass(){
   let stud = ['a', 'b', 'c'];
