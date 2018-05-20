@@ -28,11 +28,11 @@ class MessageBoard {
 }
 
 function uniqueValues(arr){
-return new Set(arr);
+  return new Set(arr);
 }
 
 function hasDuplicates(arr){
-return new Set(arr).size !== arr.length;
+  return new Set(arr).size !== arr.length;
 }
 
 function countPairs(arr, num){
