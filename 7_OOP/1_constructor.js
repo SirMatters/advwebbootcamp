@@ -8,3 +8,8 @@ function Dog(name, age) {
 
 var one = new Dog('one', 3);
 one.bark();
+
+// basically this is how the object model looks like
+// Dog --.prototype-->prototype object
+// prototype object --.constructor-->Dog
+// one --__proto__-->prototype object
