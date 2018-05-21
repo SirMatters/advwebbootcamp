@@ -1,3 +1,4 @@
+// Promise is a one-time guaranteed return of a future value
 var prom = new Promise((res, rej)=>{
   setTimeout(()=>{
     var int = 7;
