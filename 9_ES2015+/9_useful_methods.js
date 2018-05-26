@@ -38,5 +38,5 @@ instructors.findIndex(function(val){
 console.log('awesome'.includes('some')); //true or false
 console.log('awesome'.indexOf('some')); // -1 or starting position
 
-// Numbers.isFinite() returns true or false if the passed arg is NaN or not
-//Numbers.isInteger() ...
+//Number.isFinite() returns true or false if the passed arg is NaN or not
+//Number.isInteger() ...
