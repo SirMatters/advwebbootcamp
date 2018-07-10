@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
 import './App.css';
 
+
+// class InstructorItem extends Component {
+//   render() {
+//     return (
+//       <li>
+//         <h3>{this.props.name}</h3>
+//         <h4>Hobbies: {this.props.hobbies.join(", ")}</h4>
+//       </li>
+//     )
+//   }
+// }
+
+//with stateless functional component
+
+const InstructorItem = props => {
+  return (
+    <li>
+      <h3>{props.name}</h3>
+      <h4>Hobbies: {props.hobbies.join(", ")}</h4>
+    </li>
+  );
+}
+
+// InstructorItem.propTypes = ...
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -56,9 +81,10 @@ class App extends Component {
   }
   render() {
     const instructors = this.state.instructors.map((instructor, index) => (
-      <Instructor 
+      <InstructorItem 
         key ={index}
-        instructor = {instructor}
+        name = {instructor.name}
+        hobbies = {instructor.hobbies}
       />
     ));
     return(
@@ -71,16 +97,5 @@ class App extends Component {
   }
 }
 
-class Instructor extends Component {
-  render() {
-    const instructor = this.props.instructor;
-    return (
-      <li>
-        <h3>{instructor.name}</h3>
-        <h4>Hobbies: {instructor.hobbies.join(", ")}</h4>
-      </li>
-    )
-  }
-}
 
 export default App;
