@@ -32,10 +32,24 @@ class App extends Component {
         this.state.instructors[personIndex].hobbies.length
       );
       
-      const instructors = this.state.instructors.slice();
-      instructors[personIndex] = Object.assign({}, instructors[personIndex]);
-      instructors[personIndex].hobbies = instructors[personIndex].hobbies.slice();
-      instructors[personIndex].hobbies.splice(hobbyIndex, 1);
+      // const instructors = this.state.instructors.slice();
+      // instructors[personIndex] = Object.assign({}, instructors[personIndex]);
+      // instructors[personIndex].hobbies = instructors[personIndex].hobbies.slice();
+      // instructors[personIndex].hobbies.splice(hobbyIndex, 1);
+      
+      //or another way:
+
+      const instructors = this.state.instructors.map((inst, i) => {
+        if (i === personIndex) {
+          const hobbies = [...inst.hobbies]; //  == inst.hobbies.slice();
+          hobbies.splice(hobbyIndex, 1);
+          return {
+            ...inst,
+            hobbies
+          }
+        }
+        return inst;
+      })
 
       this.setState({instructors}); //object destructing! state is an object
     }, 1000);
