@@ -42,10 +42,10 @@ class App extends Component {
   }
   render() {
     const instructors = this.state.instructors.map((instructor, index) => (
-      <li key={index}>
-        <h3>{instructor.name}</h3>
-        <h4>Hobbies: {instructor.hobbies.join(", ")}</h4>
-      </li>
+      <Instructor 
+        key ={index}
+        instructor = {instructor}
+      />
     ));
     return(
       <div className="App">
@@ -53,6 +53,18 @@ class App extends Component {
           {instructors}
         </ul>
       </div>
+    )
+  }
+}
+
+class Instructor extends Component {
+  render() {
+    const instructor = this.props.instructor;
+    return (
+      <li>
+        <h3>{instructor.name}</h3>
+        <h4>Hobbies: {instructor.hobbies.join(", ")}</h4>
+      </li>
     )
   }
 }
