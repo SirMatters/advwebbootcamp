@@ -1,0 +1,9 @@
+To create react app:
+Needed module: npm install -g create-react-app
+Commands: 
+create-react-app _appName_
+npm start (in the folder)
+
+import { Stuff as sty } from "./relpath"; 
+relpath is not needed for Node.js modules
+no extension is needed for .js files

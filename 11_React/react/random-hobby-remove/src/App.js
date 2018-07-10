@@ -1,20 +1,59 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      instructors: [
+        {
+          name: 'Tim',
+          hobbies: ['sailing', 'react']
+        }, {
+          name: 'Matt',
+          hobbies: ['math', 'd3']
+        }, {
+          name: 'Colt',
+          hobbies: ['css', 'hiking']
+        }, {
+          name: 'Elie',
+          hobbies: ['music', 'es2015']
+        }
+      ]
+    }
+    setTimeout(()=>{
+      const personIndex = Math.floor(
+        Math.random()*
+        this.state.instructors.length
+      );
+
+      const hobbyIndex = Math.floor(
+        Math.random()*
+        this.state.instructors[personIndex].hobbies.length
+      );
+      
+      const instructors = this.state.instructors.slice();
+      instructors[personIndex] = Object.assign({}, instructors[personIndex]);
+      instructors[personIndex].hobbies = instructors[personIndex].hobbies.slice();
+      instructors[personIndex].hobbies.splice(hobbyIndex, 1);
+
+      this.setState({instructors}); //object destructing! state is an object
+    }, 1000);
+  }
   render() {
-    return (
+    const instructors = this.state.instructors.map((instructor, index) => (
+      <li key={index}>
+        <h3>{instructor.name}</h3>
+        <h4>Hobbies: {instructor.hobbies.join(", ")}</h4>
+      </li>
+    ));
+    return(
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <ul>
+          {instructors}
+        </ul>
       </div>
-    );
+    )
   }
 }
 
