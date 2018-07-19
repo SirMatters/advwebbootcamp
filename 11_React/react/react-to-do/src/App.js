@@ -1,68 +1,59 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const InputArea = ({inputText, todos}) => {
-  console.log(inputText)
-  return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      const todos = [...todos,
-                    inputText];
-      this.setState({inputText: '', todos});
-    }
-  }>  
-      <h1>React ToDo App</h1>
-      <input 
-        type='text'
-        name='inputText' 
-        placeholder='What needs to be done?'
-        onChange={(e)=>{
-          App.setState({[e.target.name]: e.target.value})
-        }}
-      />
-      <input type='Submit'/>
-    </form>
-  )
-}
 
-const ToDo = ({text}) => {
-  return (
-    text
-  );
-}
-
-const TasksPanel = ({todos}) => {
-  const tasksList = todos.map((todo, i)=> (
-    <li>
-      <ToDo 
-        key={i} 
-        text={todo} 
-      />
-    </li>
-  ));
-  console.log(tasksList);
-  return (
-    <ol className='todoList'>
-      {[...tasksList]}
-    </ol>
-  );
-}
+const TodoItem = ({text}) => (
+  <li>{text}</li>
+);
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputText: '',
-      todos: ['Feed the cat', 'Cool the fuck down']
-    }
+      todos : [],
+      newTodo: ""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this);
+    const todos = [...this.state.todos, this.state.newTodo];
+    this.setState({todos, newTodo: ""});
+  }
+
   render() {
+    const {newTodo} = this.state;
+    const todos = this.state.todos.map((t, i) => (
+      <TodoItem key={i} text={t} />
+    ));
+
     return (
       <div className="App">
-        <InputArea data={this.state}/>
-        <TasksPanel todos={this.state.todos}/>
-      </div>
-    );
+      <h1>ToDo React App</h1>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          className="todo-input"
+          autoComplete="off"
+          type="text"
+          name="newTodo"
+          placeholder="What needs to be done?"
+          value={newTodo}
+          onChange={(e) => this.setState({[e.target.name]: e.target.value })}
+        />
+        <button
+          type="submit"
+          className="save-button"
+        >Save</button>
+        <div className="todo-content">
+          <ol>
+            {todos}
+          </ol>
+        </div>
+      </form>
+    </div>
+    )
   }
 }
 
