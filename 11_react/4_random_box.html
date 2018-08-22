@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component 1</title>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <link rel="stylesheet" href="2_first_component.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    function createRandomStyle() {
+      const fontSize = (Math.random()*2).toFixed(2) + "em";
+      const backgroundColor =`rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
+      return(
+        {fontSize, backgroundColor, width: "150px", height: "50px"}
+      )
+    }
+  class RandomBox extends React.Component {
+    render() {
+      return(
+        <div style={createRandomStyle()}>
+          RandomBox
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<RandomBox />, document.getElementById("app"));
+  </script>
+</body>
+</html>
+
