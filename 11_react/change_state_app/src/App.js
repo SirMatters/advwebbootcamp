@@ -27,12 +27,12 @@ class App extends Component {
     setInterval(() => {
       const randPersonIndex = Math.floor(Math.random()*this.state.persons.length);
       const randHobbyIndex = Math.floor(Math.random()*this.state.persons[randPersonIndex].hobbies.length);
-      const instructors = this.state.persons.slice();
-      instructors[randPersonIndex] = Object.assign({}, instructors[randPersonIndex]);
-      instructors[randPersonIndex].hobbies = instructors[randPersonIndex].hobbies.slice();
-      instructors[randPersonIndex].hobbies.splice(randHobbyIndex, 1);
-      this.setState({instructors});
-      console.log(1)
+      const persons = this.state.persons.slice();
+      persons[randPersonIndex] = Object.assign({}, persons[randPersonIndex]);
+      persons[randPersonIndex].hobbies = persons[randPersonIndex].hobbies.slice();
+      persons[randPersonIndex].hobbies.splice(randHobbyIndex, 1);
+      console.log(this.state)
+      this.setState({persons});
     },1000)
   }
   render() {
