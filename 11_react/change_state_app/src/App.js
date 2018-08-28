@@ -2,18 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 
 
-class Instructor extends Component {
-  render() {
-    return (
-      <div className="person">
-        <h3>{this.props.name}</h3>
+// class Instructor extends Component {
+//   render() {
+//     return (
+//       <div className="person">
+//         <h3>{this.props.name}</h3>
+//         <p>Hobbies:</p>
+//         <ul>
+//           {this.props.hobbies.map(h => <li>{h}</li>)}
+//         </ul>
+//       </div>
+//     )
+//   }
+// }
+
+
+const Instructor = props => {
+  return (
+    <div className="person">
+        <h3>{props.name}</h3>
         <p>Hobbies:</p>
         <ul>
-          {this.props.hobbies.map(h => <li>{h}</li>)}
+          {props.hobbies.map(h => <li>{h}</li>)}
         </ul>
       </div>
-    )
-  }
+  )
 }
 
 class App extends Component {
@@ -52,13 +65,6 @@ class App extends Component {
   }
   render() {
     const persons = this.state.persons.map((person, ind) => (
-      // <div className="person" key={ind}>
-      //   <h3>{person.name}</h3>
-      //   <p>Hobbies:</p>
-      //   <ul>
-      //     {person.hobbies.map(h => <li>{h}</li>)}
-      //   </ul>
-      // </div>
       <Instructor
         key={ind}
         name={person.name}
