@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import './ColoredSquares.css';
 
-const ColoredSquare = props => {
-  const dim = `${Math.floor(100/App.squaresNumber)*3}vw`;
+const squaresNumber = 24;
+const rowsNumber = 3;
+
+const ColoredSquare = ({color}) => {
+  const dim = `${100*rowsNumber/squaresNumber}vw`;
+  console.log(rowsNumber);
   const style = {
-    backgroundColor: props.color,
+    backgroundColor: color,
     width: dim,
     height: dim
   }
@@ -15,13 +19,10 @@ const ColoredSquare = props => {
 
 class App extends Component {
 
-  static squaresNumber = 24;
-
   constructor(props) {
-    super(props)
-    this.state = {
-      squares: this.createSquares()
-    }
+    super(props);
+    const squares = Array(squaresNumber).fill().map(this.assignRandomColor, this);
+    this.state = {squares}
 
     setInterval(this.randomColorChange.bind(this), 100);
 
@@ -31,17 +32,17 @@ class App extends Component {
     return `rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`
   }
 
-  createSquares() {
-    const squares = [];
-    for (let i=0; i < App.squaresNumber; i++) {
-      squares.push(this.assignRandomColor())
-    }
-    return squares
-  }
+  // createSquares() {
+  //   const squares = [];
+  //   for (let i=0; i < squaresNumber; i++) {
+  //     squares.push(this.assignRandomColor())
+  //   }
+  //   return squares
+  // }
 
   randomColorChange() {
-    const randomSquare = Math.floor(Math.random()*this.state.squares.length);
     const squares = this.state.squares.slice();
+    const randomSquare = Math.floor(Math.random()*squares.length);
     squares[randomSquare] = this.assignRandomColor();
     this.setState({squares});
   }
