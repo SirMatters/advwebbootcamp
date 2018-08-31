@@ -1,0 +1,25 @@
+.NavBar {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2em;
+  margin: 10px 0;
+  padding-left: 50px;
+}
+
+.Navs {
+  display: flex;
+}
+
+.Navs > * {
+  list-style: none;
+  padding: 0px 10px;
+}
+
+.Navs :last-of-type {
+  padding-right: 50px;
+}
