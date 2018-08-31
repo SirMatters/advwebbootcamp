@@ -20,12 +20,12 @@ import './App.css';
 const Instructor = props => {
   return (
     <div className="person">
-        <h3>{props.name}</h3>
-        <p>Hobbies:</p>
-        <ul>
-          {props.hobbies.map(h => <li>{h}</li>)}
-        </ul>
-      </div>
+      <h3>{props.name}</h3>
+      <p>Hobbies:</p>
+      <ul>
+        {props.hobbies.map(h => <li>{h}</li>)}
+      </ul>
+    </div>
   )
 }
 

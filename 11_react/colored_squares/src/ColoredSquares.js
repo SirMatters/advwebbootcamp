@@ -53,7 +53,8 @@ class App extends Component {
         key={ind}
         color={col}
       />
-    ))
+    ));
+
     return (
       <div className="App">
         {squares}
