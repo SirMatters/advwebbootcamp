@@ -1,0 +1,8 @@
+.RecipeForm {
+  width: 300px;
+  height: 400px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
