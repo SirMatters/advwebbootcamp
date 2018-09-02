@@ -31,16 +31,38 @@ class RecipeApp extends Component {
           img : "https://cdn.fishki.net/upload/post/201408/19/1295477/8_2.jpg"
         }
       ],
-      nextId: 3
-
+      nextId: 3,
+      showForm: false
     }
   }
+
+  handleSave(recipe) {
+    this.setState((previousState, props) => {
+      const newRecipe = {...recipe, id: this.state.nextId};
+      return {
+        recipes: [...this.state.recipes, newRecipe],
+        nextId: previousState.nextId + 1,
+        showForm: false
+      }
+    });
+  }
+
   render() {
+    const {showForm} = this.state;
     return (
       <div className="App">
-        <RecipeForm/>
         <NavBar />
-        <RecipeList recipes={this.state.recipes}/>
+        {
+          showForm ?
+          <RecipeForm
+            onSave={this.handleSave}
+            onClose={() => this.setState({showForm: true})}
+          /> :
+          null
+        }
+        <RecipeList
+          recipes={this.state.recipes}
+        />
       </div>
     );
   }
