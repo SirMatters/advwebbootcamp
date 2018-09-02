@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './RecipeApp.css';
 import RecipeList from './RecipeList'
 import NavBar from './NavBar';
+import RecipeForm from './RecipeForm';
 
 class RecipeApp extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class RecipeApp extends Component {
   render() {
     return (
       <div className="App">
+        <RecipeForm/>
         <NavBar />
         <RecipeList recipes={this.state.recipes}/>
       </div>
