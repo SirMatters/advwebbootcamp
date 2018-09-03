@@ -5,8 +5,16 @@ import Recipe from './Recipe';
 class RecipeList extends Component {
   render() {
     const {recipes} = this.props;
-    const cards = recipes.map((r, ind) => (
-      <Recipe key={ind} {...r} />
+    const cards = recipes.map((r) => (
+      <Recipe
+        key={r.id}
+        id={r.id}
+        title={r.title}
+        instructions={r.instructions}
+        ingredients={r.ingredients}
+        img={r.img}
+        onDelete={this.props.onDelete}
+      />
     ));
     return(
       <div className="recipe-list">
