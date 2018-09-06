@@ -1,29 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const squaresNum = 8;
+const squaresNum = 10;
 
-const Square = (props) => {
-  const style = {
-    backgroundColor: props.color,
-    width: '100px',
-    height: '100px'
-  }
-  return(
-    <div
-      className='square'
-      style={style}
-      onClick={(e)=>{console.log(e.target.style.backgroundColor)}}
-    >
-    </div>
-  )
+class Square extends Component {
 }
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colors: Array(squaresNum).fill().map(this.generateRandomColor),
+      colors: colors,
       isFinished: false,
       clicked: ''
     }
@@ -33,29 +20,18 @@ class App extends Component {
     return(`rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)})`);
   }
 
-  shuffle(a) {
-    let j, i, k;
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        k = a[i, j];
-        a[i, j] = a[j, i];
-        a[j, i] = k;
+  shuffle(b) {
+    const a = b.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i,j], a[j,i]] = [a[j,i], a[i,j]]
     }
     return a;
-}
+  }
 
   render() {
-    const firstRow = this.state.colors.map((col, ind) => (
-      <Square color={col} key={ind}/>
-    ))
     return (
       <div className="App">
-        <div id='first-row'>
-          {firstRow}
-        </div>
-        <div id='second-row'>
-          {this.shuffle(firstRow.slice())}
-        </div>
       </div>
     );
   }
