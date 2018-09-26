@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const squaresNum = 10;
+const cardsNum = 10;
 
-class Square extends Component {
+const cardState = {
+  HIDING: 0,
+  SHOWING: 1,
+  MATCHING: 2
+}
+
+const Card = (props) => {
+  const style = {
+    height: '100px',
+    width: '100px',
+    backgroundColor: ''
+  }
+  if(props.showing) {
+    style.backgroundColor = props.backgroundColor;
+  }
+  return (
+    <div
+      className="card-content"
+      style={style}
+    />
+  )
 }
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colors: colors,
-      isFinished: false,
-      clicked: ''
     }
   }
 
