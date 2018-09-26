@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const cardsNum = 10;
+const cardsNum = 16;
 
 const cardState = {
   HIDING: 0,
@@ -13,7 +13,7 @@ const Card = (props) => {
   const style = {
     height: '100px',
     width: '100px',
-    backgroundColor: ''
+    backgroundColor: 'grey'
   }
   if(props.showing) {
     style.backgroundColor = props.backgroundColor;
@@ -29,8 +29,15 @@ const Card = (props) => {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
+    let colors = [
+      {state:cardState.HIDING, backgroundColor: 'red'},
+      {state:cardState.HIDING, backgroundColor: 'red'},
+      {state:cardState.HIDING, backgroundColor: 'blue'},
+      {state:cardState.HIDING, backgroundColor: 'blue'}
+    ]
+
+    colors = this.shuffle(colors);
+    this.state = {colors}
   }
 
   generateRandomColor() {
@@ -49,6 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      {this.state.colors}
       </div>
     );
   }
