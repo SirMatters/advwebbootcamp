@@ -54,9 +54,11 @@ class App extends Component {
   }
 
   render() {
+    const cards = this.state.colors.map(c => ({
+      
+    }))
     return (
       <div className="App">
-      {this.state.colors}
       </div>
     );
   }
