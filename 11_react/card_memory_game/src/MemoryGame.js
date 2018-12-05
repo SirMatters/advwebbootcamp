@@ -26,16 +26,17 @@ class MemoryGame extends Component {
     ]
 
     cards = this.shuffle(cards);
-    this.state = {cards, chosen: '', noClick: false};
+    this.state = {cards, chosen: undefined, noClick: false};
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(id){
-    let chosen, temp, cards;
+    let chosen, temp;
+    let cards = this.state.cards;
+    let noClick = this.state.noClick;
 
     const toggleCardState = (cards, id) => {
-      if (true) {
         return cards.map(c => {
           if(c.id === id) {
             temp = c.backgroundColor;
@@ -44,25 +45,29 @@ class MemoryGame extends Component {
           }
           return c;
         })
-      }
     }
-
-    if (this.state.cards.some(c => (id === c.id && c.showState === false))) {
-      cards = toggleCardState(this.state.cards, id)
-      if(this.state.chosen === '') {
-        chosen = temp;
-      } else {
-        if(temp === this.state.chosen) {
-          cards = cards.map(c => ({...c, showState: true}))
+    if (!noClick) {
+      if (this.state.cards.some(c => (id === c.id && c.showState === false))) {
+        cards = toggleCardState(this.state.cards, id)
+        if(this.state.chosen === undefined) {
+          chosen = temp;
         } else {
-          cards = cards.map(c => ({...c, showState: false}));
-          chosen = '';
+          noClick = true;
+          if(temp === this.state.chosen) {
+            cards = cards.map(c => ({...c, showState: true}))
+          } else {
+            chosen = undefined;
+            setTimeout(() => {
+              cards = cards.map(c => ({...c, showState: false}));
+              this.setState({cards, noClick: false})
+            }, 2000)
+          }
         }
+      } else {
+        cards = toggleCardState(this.state.cards, id)
       }
-    } else {
-      cards = toggleCardState(this.state.cards, id)
     }
-    this.setState({cards, chosen});
+    this.setState({cards, chosen, noClick});
   }
 
   shuffle(a) {
